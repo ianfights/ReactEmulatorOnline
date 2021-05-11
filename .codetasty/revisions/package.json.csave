@@ -1,0 +1,14 @@
+codetasty.revision.2.0
+{"ts":1620312695,"restoring":false,"user_id":43024,"patch":[{"diffs":[[1,"{\n  \"name\": \"GBoyColorWebEmu\",\n  \"version\": \"1.0.0\",\n  \"main\": \"dist/index.js\",\n  \"author\": \"POKEBLOX06\",\n  \"scr\"\n  \"license\": \"MIT\",\n  \"dependencies\": {\n    \"fs\": \"^0.0.1-security\",\n    \"serverboy\": \"^0.0.6\"\n  }\n}\n"]],"start1":0,"start2":0,"length1":0,"length2":215}],"length":215}
+{"ts":1620312698,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,",\n  \"scr"],[1,"ipts"],[0,"\"\n  \"lic"]],"start1":104,"start2":104,"length1":16,"length2":20}],"length":219}
+{"ts":1620312699,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"scripts\""],[1,": {"],[0,"\n  \"lice"]],"start1":109,"start2":109,"length1":16,"length2":19}],"length":222}
+{"ts":1620312701,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"ipts\": {"],[1,"}"],[0,"\n  \"lice"]],"start1":112,"start2":112,"length1":16,"length2":17}],"length":223}
+{"ts":1620312702,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"pts\": {}"],[1,","],[0,"\n  \"lice"]],"start1":113,"start2":113,"length1":16,"length2":17}],"length":224}
+{"ts":1620312704,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"ipts\": {"],[1,"\n    \n  "],[0,"},\n  \"li"]],"start1":112,"start2":112,"length1":16,"length2":24}],"length":232}
+{"ts":1620312705,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,": {\n    "],[1,"\"\""],[0,"\n  },\n  "]],"start1":117,"start2":117,"length1":16,"length2":18}],"length":234}
+{"ts":1620312707,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0," {\n    \""],[1,"run"],[0,"\"\n  },\n "]],"start1":118,"start2":118,"length1":16,"length2":19}],"length":237}
+{"ts":1620312709,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"   \"run\""],[1,":\"\""],[0,"\n  },\n  "]],"start1":122,"start2":122,"length1":16,"length2":19}],"length":240}
+{"ts":1620312713,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0," \"run\":\""],[1,"tsc"],[0,"\"\n  },\n "]],"start1":124,"start2":124,"length1":16,"length2":19}],"length":243}
+{"ts":1620312715,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"un\":\"tsc"],[1," "],[0,"\"\n  },\n "]],"start1":127,"start2":127,"length1":16,"length2":17}],"length":244}
+{"ts":1620312718,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"n\":\"tsc "],[1,"&& node ."],[0,"\"\n  },\n "]],"start1":128,"start2":128,"length1":16,"length2":25}],"length":253}
+{"ts":1620312730,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"   \""],[-1,"run"],[1,"start"],[0,"\":\"t"]],"start1":122,"start2":122,"length1":11,"length2":13}],"length":255}

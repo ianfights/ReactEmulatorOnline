@@ -1,0 +1,7 @@
+codetasty.revision.2.0
+{"ts":1620737023,"restoring":false,"user_id":43024,"patch":[{"diffs":[[1,"{\n  \"name\": \"EmulatorOnlineBackend\",\n  \"version\": \"1.0.0\",\n  \"main\": \"dist/index.js\",\n  \"license\": \"MIT\",\n  \"sc\"\n  \"dependencies\": {\n    \"fs\": \"^0.0.1-security\",\n    \"serverboy\": \"^0.0.6\",\n    \"ws\": \"^7.4.5\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^15.0.2\"\n  }\n}\n"]],"start1":0,"start2":0,"length1":0,"length2":271}],"length":271}
+{"ts":1620737029,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"\",\n  \"sc"],[-1,"\""],[1,"ripts\":"],[0,"\n  \"depe"]],"start1":103,"start2":103,"length1":17,"length2":23}],"length":277}
+{"ts":1620737034,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"cripts\":"],[1,"{\n    \"start\"\n  }"],[0,"\n  \"depe"]],"start1":110,"start2":110,"length1":16,"length2":33}],"length":294}
+{"ts":1620737035,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"art\"\n  }"],[1,","],[0,"\n  \"depe"]],"start1":127,"start2":127,"length1":16,"length2":17}],"length":295}
+{"ts":1620737038,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0," \"start\""],[1,":\"\""],[0,"\n  },\n  "]],"start1":123,"start2":123,"length1":16,"length2":19}],"length":298}
+{"ts":1620737044,"restoring":false,"user_id":43024,"patch":[{"diffs":[[0,"start\":\""],[1,"tsc && node ."],[0,"\"\n  },\n "]],"start1":125,"start2":125,"length1":16,"length2":29}],"length":311}
