@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const socket = new WebSocket('ws://localhost:25565');
+import { v4 as uuidv4 } from 'uuid';
+const socket = new WebSocket('ws://localhost:3001');
 
-
+let id = uuidv4();
 
 socket.onopen = con => {
     console.log("Connection opened with server");
-    socket.send('Hello World!');
+    socket.send(`{"id":"${id}","content":"readyMessage","ready":true}`);
 }
 
 class Square extends React.Component {
     render() {
         return (
             < div >
-                < canvas ref="canvas" width={640} height={576} />
+                < canvas ref="canvas" width={160} height={144} />
                 < p > asdf</p >
                 < p > Please</p >
                 {
@@ -25,18 +26,13 @@ class Square extends React.Component {
 
                         var canvas = document.querySelector('canvas');
                         var ctx = canvas.getContext('2d');
-                        var data = ctx.createImageData(640, 576);
+                        var data = ctx.createImageData(160, 144);
 
-                        for (let i = 0; i < screen.length * 4; i++) {
+                        for (let i = 0; i < screen.length ; i++) {
                             data.data[i] = screen[i]
-                            data.data[i + 1] = screen[i]
-                            data.data[i + 2] = screen[i]
-                            data.data[i + 3] = screen[i]
-                            data.data[i + 4] = screen[i]
-
                         }
 
-
+                        
 
                         ctx.putImageData(data, 0, 0);
                         //console.timeEnd('test')
@@ -48,7 +44,7 @@ class Square extends React.Component {
                 {
                     window.addEventListener('keydown', (event) => {
                         console.log(event.key);
-                        socket.send(`K${event.key}`);
+                        socket.send(`{"id":"${id}","content":"K${event.key}","ready":true}`);
 
                     })
 

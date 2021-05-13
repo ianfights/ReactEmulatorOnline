@@ -1,74 +1,66 @@
-import * as WebSocket from 'ws';
-import * as fs from 'fs';
-const Gameboy = require('serverboy');
-
-let port: number = 25565;
-const server = new WebSocket.Server({
-    port: port
-});
+import * as WebSocket from "ws";
+import { createNewGameboy } from "./createNewProcess";
+import { pressKey } from './pressKey';
+import { ping } from './ping'
+const port: number = 3001;
+const server = new WebSocket.Server({ port: port });
 console.log(`Server started on ${port}`);
-console.log(__dirname)
+
+let instances = new Map();
+let id;
 let prevScreen;
-// asdf
-server.on('connection', socket => {
-    const gameboy = new Gameboy();
-    console.log("Started new gameboy process");
-    var rom = fs.readFileSync(`${__dirname}../roms/pc.gbc`);
-    gameboy.loadRom(rom);
+let gameboy;
+let started = false;
 
-    setInterval(() => {
+server.on("connection", (socket) => {
 
+
+  socket.on("message", (message) => {
+    //Set ID and await ready message from client
+    const msg = JSON.parse(message);
+    id = msg.id;
+    
+    if (msg.ready == true && started == false) {
+      //Client is ready so create child process and start sending frames
+
+      createNewGameboy(instances, id);
+      gameboy = instances.get(id);
+      console.log(instances.size)
+      started = true;
+    }
+    
+    
+    
+    if(started = true){
+      pressKey(msg, gameboy);
+      
+      setInterval (() => {
+        ping(socket ,msg, instances, msg.id);
+
+      }, 3000)
+      
+      setInterval(() => {
+        
         let screen = gameboy.getScreen();
-
+        // console.log(screen)
         //Check if prev screen is the same as current screen
-        if(screen === prevScreen){
-            //Don't send screen because it is just a waste of resources 
-//            console.log("Didn't send as there was no change in screen");
-            gameboy.doFrame();
-
+        if (screen === prevScreen) {
+          //Don't send screen because it is just a waste of resources
+          
+          gameboy.doFrame();
+          
         } else {
-        socket.send(screen.toString());
-//        console.log("Sent new frame")
-        prevScreen = screen;
-        gameboy.doFrame();
+          
+          socket.send(screen.toString());
+          prevScreen = screen;
+          gameboy.doFrame();
+          
         }
-    }, 80);
-
-    socket.on('message', msg => {
-        if (msg.startsWith('K')) {
-            let key = msg.slice(1);
-
-            switch (key) {
-                case 'w':
-                    gameboy.pressKey('up');
-                    break;
-                case 's':
-                    gameboy.pressKey('down');
-                    break;
-                case 'a':
-                    gameboy.pressKey('left');
-                    break;
-                case 'd':
-                    gameboy.pressKey('right');
-                    break;
-                case 'z':
-                    gameboy.pressKey('b');
-                    break;
-                case 'x':
-                    gameboy.pressKey('a');
-                    break;
-                case "Enter":
-                    gameboy.pressKey('start');
-                    break;
-                case 'Shift':
-                    gameboy.pressKey('select');
-                    break;
-
-            }
-
-
-            //a 
-        }
-    });
-
+      }, 10);
+      
+      
+    }
+    
+  });
+  
 });
